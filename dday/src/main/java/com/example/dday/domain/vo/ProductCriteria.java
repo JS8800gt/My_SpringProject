@@ -5,8 +5,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.web.util.UriComponentsBuilder;
 
-@Component
 @Data
+@Component
 @RequiredArgsConstructor
 public class ProductCriteria {
     private int page;

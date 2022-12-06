@@ -66,7 +66,8 @@
 <div class="search_page" id="pageSearch">
     <div class="side_margin">
         <div id="container" class="content_width">
-            <h3 class="search_section">'<span class="key_word" id="searchKey" th:text="${keyword}"></span>'에 대한 검색결과</h3>
+            <h3 class="search_section"th:if="${not #strings.isEmpty(keyword)}">'<span class="key_word" id="searchKey" th:text="${keyword}"></span>'에 대한 검색결과
+                <span class="key_word" id="searchKey" th:unless="${not #strings.isEmpty(keyword)}"></span></h3>
             <div class="css-pzlq5x etf617g2">
                 <!--필터 바 start-->
                 <form name="filterBanner" id="filterBanner" onsubmit="return false">
@@ -175,7 +176,7 @@
                     <!--상품 나열 start-->
                     <div class="product_grid">
                         <div href="/goods/5063110" class="product_content" th:each="product : ${productList}"
-                           >
+                        >
                             <div>
                                 <div class="product_img_section">
                                     <a th:href="@{/product/categoryDetail(productNumber=${product.productNumber})}">
@@ -185,7 +186,7 @@
                                     <div>
                                         <button type="button" class="pickup"><img src="/search/images/cart.png"
                                                                                   alt="장바구니 아이콘">
-                                            <input type="hidden" class="productNumber" th:value="${product.productNumber}">
+                                            <input type="hidden" id="productNumber" th:value="${product.productNumber}">
                                             <input type="hidden" id="productSalePrice" th:value="${product.productSalePrice}">
                                             <input type="hidden" id="productName" th:value="${product.productName}">
                                             <input type="hidden" id="productPrice" th:value="${product.productPrice}">
@@ -196,7 +197,7 @@
                             <div class="product_info"><span class="delivery_info_section">
                                 <span class="delivery_info">샛별배송</span></span>
                                 <a th:href="@{/product/categoryDetail(productNumber=${product.productNumber})}">
-                                <span class="product_name" th:text="${product.productName}"></span>
+                                    <span class="product_name" th:text="${product.productName}"></span>
                                 </a>
                                 <div class="price_section">
                                     <div></div>
@@ -312,6 +313,5 @@
                 }
                 /*]]>*/
             </script>
-
 </body>
 </html>

@@ -1,11 +1,15 @@
 package com.example.dday.domain.vo;
 
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.stereotype.Component;
 
-@Component
+@Getter
+@Setter
 @Data
+@Component
 @NoArgsConstructor
 public class ProductVO {
     private Long productNumber;
